@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do - Register</title>
+    <link rel="stylesheet" href="/CSSFolder/style.css">
 </head>
 
 <body>
@@ -28,6 +29,19 @@
                     <label for="confirm_password">Confirm Password*</label>
                     <input type="password" name="confirm_password" id="confirm_password">
                 </div>
+                 <!-- ⭐ Added Remember + Forgot -->
+                <div class="remember-box">
+                    <span>
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Remember</label>
+                    </span>
+                    <a href="#" class="forgot">Forgotten?</a>
+                </div>
+
+                <!-- ⭐ Sign Up Text Added -->
+                <p class="signup-text">
+                    Don't have an account? <a href="./register.html">Sign Up</a>
+                </p>
                 <span>Already a User? <a href="./login.html">Login..</a></span>
                 <button type="submit">Register</button>
             </form>

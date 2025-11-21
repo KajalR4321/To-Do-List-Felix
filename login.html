@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do - Login</title>
+    <link rel="stylesheet" href="/CSSFolder/style.css">
 </head>
 
 <body>
@@ -14,17 +15,34 @@
             <form action="">
                 <div>
                     <label for="email">Email*</label>
-                    <input type="email" name="email" id="email" placeholder="email">
+                    <input type="email" name="email" id="email">
                 </div>
+
                 <div>
                     <label for="password">Password*</label>
                     <input type="password" name="password" id="password">
                 </div>
-                <span>Not a User? <a href="./register.html">Register..</a></span>
-                <button type="submit">Login</button>
+
+                <!-- Remember + Forgot -->
+                <div class="remember-box">
+                    <span>
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Remember</label>
+                    </span>
+                    <a href="#" class="forgot">Forgotten?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit">Log In</button>
+
+                <!-- ⭐ Don't have account -->
+                <p class="signup-text">Don't have an account?</p>
+
+                <!-- ⭐ Register Button -->
+                <a href="./register.html" class="register-btn">Register</a>
+
             </form>
         </div>
     </section>
 </body>
-
 </html>
