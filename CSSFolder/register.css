@@ -1,0 +1,128 @@
+/* Background Color */
+body {
+    margin: 0;
+    padding: 0;
+    
+    background-image: url("/assets/background\ image.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+    /* background: #dff6ff;  Light blue background */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Container */
+.register-container {
+    width: 900px;
+    height: 550px;
+    background: white;            /* White container */
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+.container {
+    width: 75%;
+    height: 85vh;
+    border-radius: 30px;       /* Round corners */
+    padding: 40px;             /* Space inside */
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+     gap: 40px;
+     box-shadow: 0 0 15px rgba(0,0,0,0.07); /* Soft clean shadow */
+}
+
+.left-side {
+    width: 100%;
+    max-width: 300px;
+    height: 450px;
+    background: #ffffff;          /* White clean box inside */
+    border-radius: 35px;          /* BIG smooth radius */
+      overflow: hidden;          /* Space from container edge */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.left-side img {
+   width: 100%;
+   height: 100%;
+   object-fit:cover;
+   border-radius: 30px;
+}
+
+.left-side img:hover {
+    transform: scale(1.05);    /* Slight zoom on hover */
+}
+/* Right Side Form */
+.right-side {
+    width: 50%;
+    padding: 40px;
+}
+
+.right-side h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    margin-left: 160px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 160px;
+
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+input {
+    padding: 10px 12px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1.5px solid #b9e7ff;
+    background: #f8fcff;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00aaff;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    background: #00aaff;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #008bcc;
+}
+
+/* Login link */
+span {
+    font-size: 1.1rem;
+}
+
+span a {
+    color: #008bcc;
+    text-decoration: none;
+}
