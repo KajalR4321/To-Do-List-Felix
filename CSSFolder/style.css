@@ -10,11 +10,71 @@
 /* ------------ BACKGROUND ------------- */
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #3F3079, #2A1F63);
+    /* background: linear-gradient(135deg, #3F3079, #2A1F63); */
+   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
+.shapes-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;   /* behind login page */
+}
+
+
+.shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 6s ease-in-out infinite;
+    z-index: -1;
+    backdrop-filter: blur(6px);
+}
+.shapes-container .shape:nth-child(1) {
+    width: 120px;
+    height: 120px;
+    top: 15%;
+    left: 10%;
+    border-radius: 55% 45% 60% 40% / 40% 60% 40% 60%;
+}
+
+.shapes-container .shape:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 45%;
+    right: 15%;
+    border-radius: 60% 40% 50% 70% / 50% 50% 60% 50%;
+    animation-delay: 2s;
+}
+
+.shapes-container .shape:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    bottom: 10%;
+    left: 40%;
+    border-radius: 50% 60% 40% 50% / 60% 40% 50% 50%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-40px) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+}
+
+
+
 section {
     width: 100%;
     height: 100vh;
@@ -174,7 +234,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 150px;
+    padding-left: 170px;
    
 
     /* background: linear-gradient(135deg, #7ec9ff, #98a3ff, #c19fff); */
@@ -197,6 +257,6 @@ button:hover {
     line-height: 1.4;
     padding-left: 40px;
     white-space: nowrap; 
-    margin-bottom: 20px;
+    margin-bottom: 30px;
    
 }
