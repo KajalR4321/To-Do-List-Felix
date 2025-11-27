@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "login.html";
     return;
   }
+  //use logout button so remove name email
+document.getElementById("logout_btn")
+.addEventListener("click",()=>{
+  localStorage.removeItem("user_email");
+  localStorage.removeItem("loggedIn");
+  window.location.href = "login.html";
+});
+
 // Get the list of all registered users
   let userList =
     JSON.parse(localStorage.getItem("userList")) || [];

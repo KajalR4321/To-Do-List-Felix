@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded",()=>{
      // This stops form from refreshing the page
 
     // Getting email value from input field
-    const email = document.getElementById(email).value.trim().toLowerCase()
+    const email = document.getElementById('email').value.trim().toLowerCase()
  // trim() removes spaces
       // toLowerCase() makes email lowercase for matching
 
-      const password=document.getElementById(password).value.trim().toLowerCase()
+      const password=document.getElementById('password').value.trim().toLowerCase()
 
       // Getting all users stored in localStorage
     // If no user found → return empty array []
@@ -34,10 +34,16 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
      // If user found → saving login details
     localStorage.setItem("user_email", userExit.email);
+    //logged out
+ 
     localStorage.setItem("name", userExit.name);
-    localStorage.setItem("loggedIn", true);
+   
 
-    // Redirect to homepage
+    localStorage.setItem("loggedIn", true);
+    
     window.location.href = "index.html";
-    })
 });
+
+
+ 
+})
