@@ -1,4 +1,5 @@
-import  { Todo } from "./Todo.js";
+import Todo from "./Todo.js";
+
 export const addTodo = (todoList) => {
   const title = document.getElementById("title").value.trim();
 

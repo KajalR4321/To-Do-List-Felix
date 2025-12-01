@@ -14,12 +14,26 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "login.html";
   });
 
-  // Get the list of all registered users
+  // Get the list of all registered users/ calling user data
   let userList = JSON.parse(localStorage.getItem("userList")) || [];
 
   // Get the email of the currently logged-in user
 
   let user_email = localStorage.getItem("user_email") || "";
+  //dought
+   function dataUpdate() {
+    let userList =
+      JSON.parse(localStorage.getItem("userList")) || [];
+
+    return userList;
+  }
+
+  userList = dataUpdate();
+
+  let indexValue = userList.findIndex(
+    (el) => el.email === user_email
+  );
+
 
   // Find the matching user object using the email
 

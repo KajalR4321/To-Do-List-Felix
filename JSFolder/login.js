@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
      // If user found → saving login details
     localStorage.setItem("user_email", userExit.email);
-    //logged out
+    
  
     localStorage.setItem("name", userExit.name);
    
