@@ -1,4 +1,5 @@
 import { addTodo } from "./Add-todo.js";
+import renderTodo from "./renderTodo.js";
 console.log(window);
 //it is use for automatic load
 document.addEventListener("DOMContentLoaded", () => {
@@ -73,5 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
     userList[indexValue] = user_data;
     //store local storage
     localStorage.setItem("userList", JSON.stringify(userList));
+// this render call because when i add todo the data is not stored in local storage when i refresh the store so i use this call i dont refresh the page
+renderTodo(user_data.todo)
   });
+    //  show todo
+  renderTodo(user_data.todo);
 });
