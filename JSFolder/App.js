@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "login.html";
     return;
   }
+
+  // Set minimum date-time to current moment
+  const now = new Date();
+const localNow = now.toISOString().slice(0, 16);
+document.getElementById("deadline").min = localNow
   //use logout button so remove name email
   document.getElementById("logout_btn").addEventListener("click", () => {
     localStorage.removeItem("user_email");

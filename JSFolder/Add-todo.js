@@ -1,10 +1,12 @@
 import Todo from "./Todo.js";
 
 export const addTodo = (todoList) => {
-  const title = document.getElementById("title").value.trim();
+  const title = document.getElementById("task_title").value.trim();
 
   const description = document.getElementById("description").value.trim();
   const deadline = document.getElementById("deadline").value.trim();
+
+
 
   const priority = document.getElementById("priority").value.trim();
 // this will use title cant be empty or same as previous

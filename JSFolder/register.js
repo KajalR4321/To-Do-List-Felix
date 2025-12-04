@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value.trim().toLowerCase();
     const password = document.getElementById("password").value.trim();
     const confirm_password = document.getElementById("confirm_password").value.trim();
+    //check password is not empty 
+    if(password.length<=0){
+      alert("enter the password")
+      return;
+    }
 
     // Check password and confirm password match
     if (password !== confirm_password) {

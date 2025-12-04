@@ -9,7 +9,7 @@
 <body>
 
   <header>
-        <div>To Do Application</div>
+        <div>TO-DO</div>
 
         <div>
             <span>Welcome, </span>
@@ -17,54 +17,109 @@
         </div>
         <nav>
             <button id="add_todo_btn" type="button">Add Todo</button>
-            <button id="logout_btn" type="button">Log Out</button>
+            <button id="logout_btn" type="button">LogOut</button>
         </nav>
     </header>
-    <main>
-        <section id="todo_container">
+    <main class="board">
+        <!-- <section id="todo_container"> -->
             <!-- todos inserted dynamically from js -->
-        </section>
-    </main>
-    <footer>
-        @copyrigh by Kajal Rajak
-    </footer>
-
-
-    <!-- add form modal -->
-
-    <dialog id="add_form_modal">
-        <span class="close_btn" id="close_btn">X</span>
-        <h2>Add Todo</h2>
-
-        <form action="" id="add_todo_form">
-            <div>
-                <label for="task_title">Task Title*</label>
-                <input type="text" name="task_title" id="task_title" placeholder="task_title">
-            </div>
-            <div>
-                <label for="description">Description</label>
-                <textarea name="description" id="description" cols="30" rows="10"></textarea>
-            </div>
-            <div>
-                <label for="deadline">Deadline*</label>
-                <input type="datetime-local" name="deadline" id="deadline">
-            </div>
-            <div>
-                <label for="priority">Priority*</label>
-                <select name="priority" id="priority">
-                    <option value="none">Select Priority</option>
+             <section class="filter_section">
+                <select name="priority_filter" id="priority_filter">
+                    <option>All Priorities</option>
                     <option value="P1">Critical</option>
                     <option value="P2">High</option>
                     <option value="P3">Medium</option>
                     <option value="P4">Low</option>
                 </select>
-            </div>
+              <select id="satus_filter">
+                <option>All</option>
+                    <option value="completed">Completed</option>
+                    <option value="pending">Pending</option>
+                    
+              </select>
+           <input type="search" placeholder="search Title" id="search_filter">
+            </section>
+            <section id="todoboard">
+                <p>No data found !Add Some</p>
+            </section>
+      
+    </main>
+    <footer>
+        @copyright by Kajal Rajak
+    </footer>
 
-            <button type="submit">Add Todo</button>
+
+    <!-- add form modal -->
+
+    <dialog id="add_form_modal" class="modal">
+          <form  class="modal-content" id="add_todo_form">
+        <span  id="close_btn">X</span>
+        <h2>Add NEW TASK</h2>
+
+      
+            <div>
+                <label for="task_title">Title*</label>
+                <input type="text" name="task_title" id="task_title" placeholder="Task Title" required>
+            </div>
+            <div>
+                <label for="description">Description*</label>
+                <textarea name="description" id="description" cols="30" rows="10"  placeholder="Task Title" required></textarea>
+            </div>
+           
+            <div>
+                <label for="priority">Priority*</label>
+                <select name="priority_filter" id="priority_filter"  >
+                    <option value="none">Select Priority</option>
+                    <option value="P1">Critical</option>
+                    <option value="P2">High</option>
+                    <option value="P3">Moderate</option>
+                    <option value="P4">Low</option>
+                </select>
+            </div>
+             <div>
+                <label for="deadline">Deadline*</label>
+                <input type="datetime-local" name="deadline" id="deadline"  placeholder="Task Title">
+            </div>
+             
+                  <button type="submit">Add TASK</button>
         </form>
 
     </dialog>
+    <!---edit modl-->
+    <dialog id="edit_form_modal" class="edit_modal">
+          <form  class="edit_modal-content" id="edit_todo_form">
+        <span  id="edit_close_btn">X</span>
+        <h2>Add NEW TASK</h2>
 
+      
+            <div>
+                <label for="edit_task_title">Title*</label>
+                <input type="text" name="task_title" id="edit_title" placeholder="Task Title" required>
+            </div>
+            <div>
+                <label for="edit_description">Description*</label>
+                <textarea name="description" id=" edit_description" cols="30" rows="10"  placeholder="Task Title" required></textarea>
+            </div>
+           
+            <div>
+                <label for="edit_priority">Priority*</label>
+                <select name="priority_filter" id="edit_priority_filter"  >
+                    <option value="none">Select Priority</option>
+                    <option value="P1">Critical</option>
+                    <option value="P2">High</option>
+                    <option value="P3">Moderate</option>
+                    <option value="P4">Low</option>
+                </select>
+            </div>
+             <div>
+                <label for="edit_deadline">Deadline*</label>
+                <input type="datetime-local" name="deadline" id="edit_deadline"  placeholder="Task Title">
+            </div>
+             
+                  <button type="submit">Add TASK</button>
+        </form>
+
+</dialog>
     <!---Show todo template when i use this it not show in index file because it use template keyword it hide and show in console like document fragment-->
     <template id="todo_card_template">
         <div class="todo_card">
