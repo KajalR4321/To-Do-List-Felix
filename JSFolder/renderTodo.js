@@ -1,6 +1,6 @@
-
+import { editTodo } from "./editTodo.js";
 // Selecting the container where all todo cards will be displayed
-const todo_container = document.getElementById("todo_container");
+const todo_container = document.getElementById("todoboard");
 
 // Selecting the <template> element used to create todo cards
 
@@ -24,21 +24,47 @@ function renderTodo(todoList=[]){
 
     // Loop through each todo item in the list
 
-  todoList.forEach((el) => {
-            // Clone the template content to create a new todo card
-    let clone = todo_card_template.content.cloneNode(true);
-            // Select the title and deadline inside the cloned template
-    let h4 = clone.querySelector("h4");
-    let p = clone.querySelector("p");
+//   todoList.forEach((el) => {
+//             // Clone the template content to create a new todo card
+//     let clone = todo_card_template.content.cloneNode(true);
+//             // Select the title and deadline inside the cloned template
+//     let h4 = clone.querySelector("h4");
+//    let p = clone.querySelector("p");
 
-    // Set dynamic data for each card
-     h4.innerText = el.title;  // set task title
-     p.innerText = el.deadline; // set task deadline
+//     //for edit update
+//     clone.querySelector(".edit_btn").addEventListener("click",()=>{
+//       editTodo(el)
+//     });
 
-       // Add the card to the main container
+//     // Set dynamic data for each card
+//      h4.innerText = el.title;  // set task title
+//      p.innerText = el.deadline; // set task deadline
 
-    todo_container.appendChild(clone);
-  });
+//        // Add the card to the main container
+
+//     todo_container.appendChild(clone);
+//   });
+// }
+todoList.forEach((el) => {
+  // Clone the template content to create a new todo card
+  let clone = todo_card_template.content.cloneNode(true);
+
+  // Select the title and deadline inside the cloned template
+  let h4 = clone.querySelector("h4");
+  let p = clone.querySelector("p");
+  
+    
+
+  // Fill values
+  h4.textContent = el.title;
+  p.textContent = el.deadline;
+    clone.querySelector("#edit_btn").addEventListener("click", () => {
+    editTodo(el);
+    });
+
+  // Append to container
+  todo_container.appendChild(clone);
+});
 }
 
 export default renderTodo;

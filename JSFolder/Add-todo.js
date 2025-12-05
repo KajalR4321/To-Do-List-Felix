@@ -8,7 +8,7 @@ export const addTodo = (todoList) => {
 
 
 
-  const priority = document.getElementById("priority").value.trim();
+  const priority = document.getElementById("priority_filter").value.trim();
 // this will use title cant be empty or same as previous
 if(title<=0){
     alert("todo cannot be empty");

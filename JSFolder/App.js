@@ -10,10 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Set minimum date-time to current moment
+
   const now = new Date();
 const localNow = now.toISOString().slice(0, 16);
 document.getElementById("deadline").min = localNow
+
   //use logout button so remove name email
+
   document.getElementById("logout_btn").addEventListener("click", () => {
     localStorage.removeItem("user_email");
     localStorage.removeItem("loggedIn");
@@ -41,7 +44,7 @@ document.getElementById("deadline").min = localNow
   );
 
 
-  // Find the matching user object using the email
+  // Find the matching user object using the email/display the username
 
   let user_data = userList.find((user) => user.email === user_email);
 
@@ -62,7 +65,7 @@ document.getElementById("deadline").min = localNow
 
   //  showing todo list
 
-  const todo_container = document.getElementById("todo_container");
+  const todo_container = document.getElementById("todoboard");
 
   if (user_data.todo.length > 0) {
     //  if data avaliable map it in html
@@ -84,4 +87,30 @@ renderTodo(user_data.todo)
   });
     //  show todo
   renderTodo(user_data.todo);
+
+ //Edit form 
+ 
+const edit_todo_form = document.getElementById("edit_todo_form");
+
+// When user submits the edit form
+edit_todo_form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent page reload on form submit
+
+  // Update the todo inside the user's todo list
+  let newTodo = editFormMethod(user_data.todo);
+
+  // Replace the updated user data back into the main userList array
+  userList[indexValue] = user_data;
+
+  // Save updated userList back to localStorage
+  localStorage.setItem(
+    "userList",
+    JSON.stringify(userList)
+  );
+
+  // Re-render the todo list on UI after editing
+  renderTodo(user_data.todo);
+});
+
+
 });
