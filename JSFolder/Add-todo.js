@@ -4,11 +4,12 @@ export const addTodo = (todoList) => {
   const title = document.getElementById("task_title").value.trim();
 
   const description = document.getElementById("description").value.trim();
-  const deadline = document.getElementById("deadline").value.trim();
+  const deadline = document.getElementById("deadline").value;
 
+  console.log(deadline)
 
-
-  const priority = document.getElementById("priority_filter").value.trim();
+  const priority = document.getElementById("priority_filter").value;
+  console.log(document.getElementById("priority_filter"))
 // this will use title cant be empty or same as previous
 if(title<=0){
     alert("todo cannot be empty");
@@ -24,5 +25,6 @@ if(found){
 let newTodo= new Todo(title, description, deadline, priority);
 
 todoList.push(newTodo)
+
 };
 

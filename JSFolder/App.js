@@ -1,5 +1,6 @@
 import { addTodo } from "./Add-todo.js";
 import renderTodo from "./renderTodo.js";
+import { editFormMethod, editTodo } from "./editTodo.js";
 console.log(window);
 //it is use for automatic load
 document.addEventListener("DOMContentLoaded", () => {
@@ -84,6 +85,7 @@ document.getElementById("deadline").min = localNow
     localStorage.setItem("userList", JSON.stringify(userList));
 // this render call because when i add todo the data is not stored in local storage when i refresh the store so i use this call i dont refresh the page
 renderTodo(user_data.todo)
+ add_form_modal.close();
   });
     //  show todo
   renderTodo(user_data.todo);

@@ -1,4 +1,5 @@
 import { editTodo } from "./editTodo.js";
+import { deleteTodo } from "./delete.js";
 // Selecting the container where all todo cards will be displayed
 const todo_container = document.getElementById("todoboard");
 
@@ -24,27 +25,7 @@ function renderTodo(todoList=[]){
 
     // Loop through each todo item in the list
 
-//   todoList.forEach((el) => {
-//             // Clone the template content to create a new todo card
-//     let clone = todo_card_template.content.cloneNode(true);
-//             // Select the title and deadline inside the cloned template
-//     let h4 = clone.querySelector("h4");
-//    let p = clone.querySelector("p");
 
-//     //for edit update
-//     clone.querySelector(".edit_btn").addEventListener("click",()=>{
-//       editTodo(el)
-//     });
-
-//     // Set dynamic data for each card
-//      h4.innerText = el.title;  // set task title
-//      p.innerText = el.deadline; // set task deadline
-
-//        // Add the card to the main container
-
-//     todo_container.appendChild(clone);
-//   });
-// }
 todoList.forEach((el) => {
   // Clone the template content to create a new todo card
   let clone = todo_card_template.content.cloneNode(true);
@@ -52,14 +33,38 @@ todoList.forEach((el) => {
   // Select the title and deadline inside the cloned template
   let h4 = clone.querySelector("h4");
   let p = clone.querySelector("p");
-  
+  let span= clone.querySelector("span");
     
 
   // Fill values
   h4.textContent = el.title;
   p.textContent = el.deadline;
-    clone.querySelector("#edit_btn").addEventListener("click", () => {
-    editTodo(el);
+  if(el.priority === "P1"){
+    span.innerText = "critical"
+  } else if(el.priority === "P2"){
+     span.innerText = "High"
+
+  }
+  else if(el.priority === "P3"){
+     span.innerText = "Moderate"
+
+  }
+  else if(el.priority === "P4"){
+     span.innerText = "Low"
+
+  } else{
+      span.innerText = "priority"
+
+  }
+     // FIXED EDIT BUTTON
+    clone.querySelector(".edit_btn").addEventListener("click", () => {
+      editTodo(el);
+    });
+     // FIXED delete BUTTON
+   clone.querySelector(".delete_btn").addEventListener("click", () => {
+    todoList = deleteTodo(todoList, el.title);  // call your delete function
+    renderTodo(todoList);       
+   
     });
 
   // Append to container

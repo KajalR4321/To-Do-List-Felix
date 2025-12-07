@@ -24,7 +24,7 @@
         <!-- <section id="todo_container"> -->
             <!-- todos inserted dynamically from js -->
              <section class="filter_section">
-                <select name="priority_filter" id="priority_filter">
+                <select name="priority_filter" id="priority_filtring">
                     <option>All Priorities</option>
                     <option value="P1">Critical</option>
                     <option value="P2">High</option>
@@ -78,7 +78,7 @@
             </div>
              <div>
                 <label for="deadline">Deadline*</label>
-                <input type="datetime-local" name="deadline" id="deadline"  placeholder="Task Title">
+                <input type="datetime-local" name="deadline" id="deadline"  >
             </div>
              
                   <button type="submit">Add TASK</button>
@@ -89,7 +89,7 @@
     <dialog id="edit_form_modal" class="edit_modal">
           <form  class="edit_modal-content" id="edit_todo_form">
         <span  id="edit_close_btn">X</span>
-        <h2>Add NEW TASK</h2>
+        <h2>EDIT TASK</h2>
 
       
             <div>
@@ -98,7 +98,7 @@
             </div>
             <div>
                 <label for="edit_description">Description*</label>
-                <textarea name="description" id=" edit_description" cols="30" rows="10"  placeholder="Task Title" required></textarea>
+                <textarea name="description" id="edit_description" cols="30" rows="10"  placeholder="Task Description" required></textarea>
             </div>
            
             <div>
@@ -113,34 +113,33 @@
             </div>
              <div>
                 <label for="edit_deadline">Deadline*</label>
-                <input type="datetime-local" name="deadline" id="edit_deadline"  placeholder="Task Title">
+                <input type="datetime-local" name="deadline" id="edit_deadline"  >
             </div>
              
-                  <button type="submit">Add TASK</button>
+                  <button type="submit">ADD NEW TASK</button>
         </form>
 
 </dialog>
-    <!---Show todo template when i use this it not show in index file because it use template keyword it hide and show in console like document fragment-->
-    <template id="todo_card_template">
-        <div class="todo_card">
-            <h4>
-                Kajal
-                <!---title-->
-            </h4>
-            <p>
-                <!--deadline-->
+      <!-- TODO CARD TEMPLATE — FIXED (single template only) -->
+<template id="todo_card_template">
+    <div class="todo_card">
+        <h4><!-- title inserted here -->Kajal</h4>
+        <p><!-- deadline inserted here --></p>
 
-            </p>
-            <button>delete
+        <button class="delete_btn">delete</button>
 
-            </button>
-            <div>
-                <input type="checkbox" name="" id="">
-            </div>
-            <button id="edit_btn">Edit</button>
+        <div>
+            <input type="checkbox" class="mark_complete">
         </div>
 
-    </template>
+        <button class="edit_btn">Edit</button>
+    </div>
+</template>
+
+              
+           
+        
+
    <script  src="./JSFolder/App.js" type="module">
    
    

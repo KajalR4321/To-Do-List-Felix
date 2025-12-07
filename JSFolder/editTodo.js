@@ -11,9 +11,9 @@ document
   });
 
 // Input fields inside the edit form
-const title = document.getElementById("edit_task_title");
+const title = document.getElementById("edit_title");
 const description = document.getElementById("edit_description");
-const priority = document.getElementById("edit_priority");
+const priority = document.getElementById("edit_priority_filter");
 const deadline = document.getElementById("edit_deadline");
 
 // This variable stores the old title so we can find and update the correct todo
@@ -26,8 +26,8 @@ export const editTodo = (todo) => {
   edit_form_modal.showModal(); // Show edit modal
 
   // Fill input fields with existing todo data
- title.value = todo.title;
-  description.value = todo.description;
+  title.value = todo.title;
+ description.value = todo.description;
   priority.value = todo.priority;
   deadline.value = todo.deadline;
 
@@ -35,16 +35,14 @@ export const editTodo = (todo) => {
   oldTitle = todo.title;
 };
 
-/**
- * Function to update the edited todo item
- * @param {Array} todoList - The list of all todos
- * @returns updated todoList
- */
+
+ 
 export const editFormMethod = (todoList) => {
   const new_title = title.value;
   const new_description = description.value;
   const new_deadline = deadline.value;
   const new_priority = priority.value;
+  console.log("new value: ", new_priority)
 
   // Validation: title should not be empty
   if (new_title.length <= 0) {
@@ -61,12 +59,12 @@ export const editFormMethod = (todoList) => {
   let updatedTodo = new Todo(
     new_title,
     new_description,
+    new_deadline,
     new_priority,
-    new_deadline
   );
 
   // Replace the old todo with updated one
   todoList[index_number] = updatedTodo;
-
+edit_form_modal.close()
   return todoList; // Return updated list
 };
