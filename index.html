@@ -1,149 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TO-DO-List</title>
-    <link rel="stylesheet" href="/CSSFolder/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/CSSFolder/style.css" />
+  </head>
+  <body>
+    <header>
+      <div>TO-DO</div>
 
-  <header>
-        <div>TO-DO</div>
-
-        <div>
-            <span>Welcome, </span>
-            <span id="user_name"></span>
-        </div>
-        <nav>
-            <button id="add_todo_btn" type="button">Add Todo</button>
-            <button id="logout_btn" type="button">LogOut</button>
-        </nav>
+      <div>
+        <span>Welcome, </span>
+        <span id="user_name"></span>
+      </div>
+      <nav>
+        <button id="add_todo_btn" type="button">Add Todo</button>
+        <button id="logout_btn" type="button">LogOut</button>
+      </nav>
     </header>
     <main class="board">
-        <!-- <section id="todo_container"> -->
-            <!-- todos inserted dynamically from js -->
-             <section class="filter_section">
-                <select name="priority_filter" id="priority_filtring">
-                    <option>All Priorities</option>
-                    <option value="P1">Critical</option>
-                    <option value="P2">High</option>
-                    <option value="P3">Medium</option>
-                    <option value="P4">Low</option>
-                </select>
-              <select id="satus_filter">
-                <option>All</option>
-                    <option value="completed">Completed</option>
-                    <option value="pending">Pending</option>
-                    
-              </select>
-           <input type="search" placeholder="search Title" id="search_filter">
-            </section>
-            <section id="todoboard">
-                <p>No data found !Add Some</p>
-            </section>
-      
+      <!-- <section id="todo_container"> -->
+      <!-- todos inserted dynamically from js -->
+      <section class="filter_section">
+        <select name="priority_filter" id="priority_filtring">
+          <option>All Priorities</option>
+          <option value="P1">Critical</option>
+          <option value="P2">High</option>
+          <option value="P3">Medium</option>
+          <option value="P4">Low</option>
+        </select>
+        <select id="satus_filter">
+          <option>All</option>
+          <option value="completed">Completed</option>
+          <option value="pending">Pending</option>
+        </select>
+        <input type="search" placeholder="Search Title" id="search_filter" />
+      </section>
+      <section id="todoboard">
+        <p>No data found !Add Some</p>
+      </section>
     </main>
-    <footer>
-        @copyright by Kajal Rajak
-    </footer>
-
+    <footer>@copyright by Kajal Rajak</footer>
 
     <!-- add form modal -->
 
     <dialog id="add_form_modal" class="modal">
-          <form  class="modal-content" id="add_todo_form">
-        <span  id="close_btn">X</span>
+      <form class="modal-content" id="add_todo_form">
+        <span id="close_btn">X</span>
         <h2>Add NEW TASK</h2>
 
-      
-            <div>
-                <label for="task_title">Title*</label>
-                <input type="text" name="task_title" id="task_title" placeholder="Task Title" required>
-            </div>
-            <div>
-                <label for="description">Description*</label>
-                <textarea name="description" id="description" cols="30" rows="10"  placeholder="Task Title" required></textarea>
-            </div>
-           
-            <div>
-                <label for="priority">Priority*</label>
-                <select name="priority" id="priority_filter"  >
-                    <option value="none">Select Priority</option>
-                    <option value="P1">Critical</option>
-                    <option value="P2">High</option>
-                    <option value="P3">Moderate</option>
-                    <option value="P4">Low</option>
-                </select>
-            </div>
-             <div>
-                <label for="deadline">Deadline*</label>
-                <input type="datetime-local" name="deadline" id="deadline"  >
-            </div>
-             
-                  <button type="submit">Add TASK</button>
-        </form>
+        <div>
+          <label for="task_title">Title*</label>
+          <input
+            type="text"
+            name="task_title"
+            id="task_title"
+            placeholder="Task Title"
+            required
+          />
+        </div>
+        <div>
+          <label for="description">Description*</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+            placeholder="Task Title"
+            required
+          ></textarea>
+        </div>
 
+        <div>
+          <label for="priority_filter">Priority*</label>
+          <select name="priority" id="priority_filter">
+            <option value="none">Select Priority</option>
+            <option value="P1">Critical</option>
+            <option value="P2">High</option>
+            <option value="P3">Moderate</option>
+            <option value="P4">Low</option>
+          </select>
+        </div>
+        <div>
+          <label for="deadline">Deadline*</label>
+          <input type="datetime-local" name="deadline" id="deadline" />
+        </div>
+
+        <button type="submit">Add TASK</button>
+      </form>
     </dialog>
     <!---edit modl-->
     <dialog id="edit_form_modal" class="edit_modal">
-          <form  class="edit_modal-content" id="edit_todo_form">
-        <span  id="edit_close_btn">X</span>
+      <form class="edit_modal-content" id="edit_todo_form">
+        <span id="edit_close_btn">X</span>
         <h2>EDIT TASK</h2>
 
-      
-            <div>
-                <label for="edit_task_title">Title*</label>
-                <input type="text" name="task_title" id="edit_title" placeholder="Task Title" required>
-            </div>
-            <div>
-                <label for="edit_description">Description*</label>
-                <textarea name="description" id="edit_description" cols="30" rows="10"  placeholder="Task Description" required></textarea>
-            </div>
-           
-            <div>
-                <label for="edit_priority">Priority*</label>
-                <select name="priority_filter" id="edit_priority_filter"  >
-                    <option value="none">Select Priority</option>
-                    <option value="P1">Critical</option>
-                    <option value="P2">High</option>
-                    <option value="P3">Moderate</option>
-                    <option value="P4">Low</option>
-                </select>
-            </div>
-             <div>
-                <label for="edit_deadline">Deadline*</label>
-                <input type="datetime-local" name="deadline" id="edit_deadline"  >
-            </div>
-             
-                  <button type="submit">ADD NEW TASK</button>
-        </form>
-
-</dialog>
-      <!-- TODO CARD TEMPLATE — FIXED (single template only) -->
-<template id="todo_card_template">
-    <div class="todo_card">
-        <h4><!-- title inserted here -->Kajal</h4>
-        <p><!-- deadline inserted here --></p>
-
-        <button class="delete_btn">delete</button>
-
         <div>
-            <input type="checkbox" class="mark_complete">
+          <label for="edit_title">Title*</label>
+          <input
+            type="text"
+            name="task_title"
+            id="edit_title"
+            placeholder="Task Title"
+            required
+          />
+        </div>
+        <div>
+          <label for="edit_description">Description*</label>
+          <textarea
+            name="description"
+            id="edit_description"
+            cols="30"
+            rows="10"
+            placeholder="Task Description"
+            required
+          ></textarea>
         </div>
 
-        <button class="edit_btn">Edit</button>
-    </div>
-</template>
+        <div>
+          <label for="edit_priority_filter">Priority*</label>
+          <select name="priority_filter" id="edit_priority_filter">
+            <option value="none">Select Priority</option>
+            <option value="P1">Critical</option>
+            <option value="P2">High</option>
+            <option value="P3">Moderate</option>
+            <option value="P4">Low</option>
+          </select>
+        </div>
+        <div>
+          <label for="edit_deadline">Deadline*</label>
+          <input type="datetime-local" name="deadline" id="edit_deadline" />
+        </div>
 
-              
-           
-        
+        <button type="submit">ADD NEW TASK</button>
+      </form>
+    </dialog>
+    <!-- TODO CARD TEMPLATE — FIXED (single template only) -->
+    <template id="todo_card_template">
+      <div class="todo_card">
+        <h4><!-- title inserted here -->Kajal</h4>
+        <p><!-- deadline inserted here --></p>
+        <span> 
+            <!--date and time-->
+        </span>
 
-   <script  src="./JSFolder/App.js" type="module">
-   
-   
-   </script>
- 
-</body>
+      
+          <label for="complete_label">
+            <input type="checkbox" class="complete_checkbox" />
+          </label>
+    
+       
+          <button class="edit_btn">Edit</button>
+          <button typr="button" class="delete_btn">
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="transparent"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 6.98996C8.81444 4.87965 15.1856 4.87965 21 6.98996"
+                stroke="#000000"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M8.00977 5.71997C8.00977 4.6591 8.43119 3.64175 9.18134 2.8916C9.93148 2.14146 10.9489 1.71997 12.0098 1.71997C13.0706 1.71997 14.0881 2.14146 14.8382 2.8916C15.5883 3.64175 16.0098 4.6591 16.0098 5.71997"
+                stroke="#000000"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M12 13V18"
+                stroke="#000000"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                d="M19 9.98999L18.33 17.99C18.2225 19.071 17.7225 20.0751 16.9246 20.8123C16.1266 21.5494 15.0861 21.9684 14 21.99H10C8.91389 21.9684 7.87336 21.5494 7.07541 20.8123C6.27745 20.0751 5.77745 19.071 5.67001 17.99L5 9.98999"
+                stroke="#000000"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </button>
+       
+      </div>
+    </template>
+
+    <script src="./JSFolder/App.js" type="module"></script>
+  </body>
 </html>

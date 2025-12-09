@@ -29,7 +29,22 @@ function renderTodo(todoList=[]){
 todoList.forEach((el) => {
   // Clone the template content to create a new todo card
   let clone = todo_card_template.content.cloneNode(true);
-
+  let div = clone.querySelector('div')
+  //it use when priority is change then color also change
+  switch (el.priority){
+    case "P1":
+      div.classList+= " critical"
+      break ;
+      case "P2":
+      div.classList+= " Heigh"
+      break;
+       case "P3":
+      div.classList+= " Medium"
+      break;
+       case "P4":
+      div.classList+= " Low"
+      break;
+  }
   // Select the title and deadline inside the cloned template
   let h4 = clone.querySelector("h4");
   let p = clone.querySelector("p");
@@ -39,31 +54,13 @@ todoList.forEach((el) => {
   // Fill values
   h4.textContent = el.title;
   p.textContent = el.deadline;
-  if(el.priority === "P1"){
-    span.innerText = "critical"
-  } else if(el.priority === "P2"){
-     span.innerText = "High"
-
-  }
-  else if(el.priority === "P3"){
-     span.innerText = "Moderate"
-
-  }
-  else if(el.priority === "P4"){
-     span.innerText = "Low"
-
-  } else{
-      span.innerText = "priority"
-
-  }
      // FIXED EDIT BUTTON
     clone.querySelector(".edit_btn").addEventListener("click", () => {
       editTodo(el);
     });
      // FIXED delete BUTTON
    clone.querySelector(".delete_btn").addEventListener("click", () => {
-    todoList = deleteTodo(todoList, el.title);  // call your delete function
-    renderTodo(todoList);       
+    deleteTodo(todoList, el.title);  // call your delete function     
    
     });
 

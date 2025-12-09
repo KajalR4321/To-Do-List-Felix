@@ -426,6 +426,21 @@ box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 30px;
     position: relative;
 }
 
+.todo_card.critical{
+    background: lightsalmon;
+}
+
+.todo_card.Heigh{
+    background: lightgreen;
+}
+
+.todo_card.Medium{
+    background:gainsboro;
+}
+
+.todo_card.Low{
+    background: lightskyblue;
+}
 
 .todo_card::before{
         content: "";
@@ -445,17 +460,28 @@ box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 30px;
 
 /* Title */
 .todo_card h4 {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: bold;
+     
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #e6f1ff;
+    padding-right: 3rem;
+    line-height: 1.4;
 }
 
 /* Deadline */
 .todo_card p {
-    margin: 0.4rem 0 1rem;
-    opacity: 0.8;
+        display: block;
+    color: #8892b0;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    background: rgba(136, 146, 176, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #52d7ff;
 }
 .todo_card_container span {
+   
+   
     display: block;
     color: #8892b0;
     font-size: 0.95rem;
@@ -465,6 +491,8 @@ box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 30px;
     border-radius: 6px;
     border-left: 4px solid #52d7ff;
 }
+
+
 
 /* Buttons & checkbox row */
 .todo_actions {
@@ -481,42 +509,61 @@ box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 30px;
 }
 
 /* Buttons (same-size circle buttons) */
-.edit_btn,
-.delete_btn {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s ease;
-    font-size: 0.9rem;
-}
-
-/* Edit Button – Sky Blue Gradient */
 .edit_btn {
-    background: linear-gradient(135deg, #a8e6ff, #6ecbff);
-    color: #112240;
+    background: linear-gradient(45deg, #0984e3, #00cec9);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 1rem;
 }
 .edit_btn:hover {
-    background: linear-gradient(135deg, #8bd8ff, #3fb2ff);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(9, 132, 227, 0.5);
+}
+.delete_btn {
+    position: absolute;
+    bottom: 1.8rem;
+    right: 1.8rem;
+    background: rgba(255, 118, 117, 0.1);
+    border: 1px solid #ff7675;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s 
+ease;
+}
+.delete_btn svg {
+    width: 24px;
+    height: 22px;
+}
+/* 🔥 Hover Effects */
+.delete_btn:hover {
+    background: #ff7675;      /* Change background color on hover */
+    border-color: #d63031;    /* Darker border */
+    transform: rotate(20deg); /* Rotate the button slightly right */
 }
 
-/* Delete Button – Red */
-.delete_btn {
-    background: #ff4d4d;
-    color: white;
-}
-.delete_btn:hover {
-    background: #e63939;
+.delete_btn:hover svg {
+    transform: rotate(75deg); /* Rotate SVG icon 90° on hover */
 }
 
 /* Checkbox */
-.todo_card input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+.complete_checkbox {
+    position: absolute;
+    top: 1.8rem;
+    right: 1.8rem;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
+    accent-color: #64ffda;
 }
+
+
