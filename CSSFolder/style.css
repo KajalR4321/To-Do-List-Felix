@@ -427,19 +427,19 @@ box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 30px;
 }
 
 .todo_card.critical{
-    background: lightsalmon;
+    background: linear-gradient(90deg, rgba(0, 220, 209, 0.7), rgba(0, 105, 148, 0.4));
 }
 
 .todo_card.Heigh{
-    background: lightgreen;
+   background:linear-gradient(90deg, rgba(0, 255, 255, 0.6), rgba(0, 50, 100, 0.5));;
 }
 
 .todo_card.Medium{
-    background:gainsboro;
+    background:linear-gradient(90deg, rgba(0, 216, 209, 0.7), rgba(0, 108, 148, 0.4));
 }
 
 .todo_card.Low{
-    background: lightskyblue;
+    background: linear-gradient(90deg, rgba(0, 211, 209, 0.7), rgba(0, 115, 148, 0.4));;
 }
 
 .todo_card::before{

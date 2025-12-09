@@ -112,6 +112,14 @@ edit_todo_form.addEventListener("submit", (e) => {
 
   // Re-render the todo list on UI after editing
   renderTodo(user_data.todo);
+
+
+
+
+  //filter logic
+  document.getElementById("edit_priority_filter").addEventListener('input', (event)=>{
+      alert(event.target.value)
+  })
 });
 
 
