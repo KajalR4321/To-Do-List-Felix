@@ -1,5 +1,7 @@
 import { addTodo } from "./Add-todo.js";
 import renderTodo from "./renderTodo.js";
+import applyFilters from "./filtering.js";
+
 import { editFormMethod, editTodo } from "./editTodo.js";
 console.log(window);
 //it is use for automatic load
@@ -112,15 +114,34 @@ edit_todo_form.addEventListener("submit", (e) => {
 
   // Re-render the todo list on UI after editing
   renderTodo(user_data.todo);
+  //apply filter method
 
+ applyFilters(User_details.todoList);
 
+  const priority_filter = document.getElementById(
+    "priority_filtring"
+  );
+  const status_filter =
+    document.getElementById("satus_filter");
+  const search_filter =
+    document.getElementById("search_filter");
+// Apply filters on load
+applyFilters(user_data.todo);
+  priority_filter.addEventListener("change", () =>
+    applyFilters(user_data.todoList)
+  );
+  status_filter.addEventListener("change", () =>
+    applyFilters(user_data.todoList)
+  );
 
-
-  //filter logic
-  document.getElementById("edit_priority_filter").addEventListener('input', (event)=>{
-      alert(event.target.value)
-  })
+  search_filter.addEventListener("input", () =>
+    applyFilters(user_data.todoList)
+  );
 });
 
 
+  
 });
+
+
+

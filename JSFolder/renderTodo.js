@@ -39,7 +39,7 @@ todoList.forEach((el) => {
       div.classList+= " Heigh"
       break;
        case "P3":
-      div.classList+= " Medium"
+      div.classList+= " Moderate"
       break;
        case "P4":
       div.classList+= " Low"
