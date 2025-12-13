@@ -36,14 +36,13 @@ body {
     display: flex;
     /* justify-content: center;
     align-items: center; */
-     gap: 40px;
+     gap: 20px;
      box-shadow: 0 0 15px rgba(0,0,0,0.07); /* Soft clean shadow */
 }
 
 .left-side {
-    width: 100%;
-    max-width: 300px;
-    height: 450px;
+    flex: 1;
+    height: 100%;
     background: #ffffff;          /* White clean box inside */
     border-radius: 35px;          /* BIG smooth radius */
     overflow: hidden;          /* Space from container edge */
@@ -57,6 +56,7 @@ body {
    height: 100%;
    object-fit:cover;
    border-radius: 30px;
+  
 }
 
 .left-side img:hover {
@@ -64,7 +64,7 @@ body {
 }
 /* Right Side Form */
 .right-side {
-    width: 50%;
+    flex: 1 1 100%;
     padding: 40px;
 }
 
@@ -78,7 +78,6 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-left: 160px;
 
 }
 
