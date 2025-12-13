@@ -1,6 +1,5 @@
 import { addTodo } from "./Add-todo.js";
 import renderTodo from "./renderTodo.js";
-import applyFilters from "./filtering.js";
 
 import { editFormMethod, editTodo } from "./editTodo.js";
 console.log(window);
@@ -15,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set minimum date-time to current moment
 
   const now = new Date();
-const localNow = now.toISOString().slice(0, 16);
-document.getElementById("deadline").min = localNow
+  const localNow = now.toISOString().slice(0, 16);
+  document.getElementById("deadline").min = localNow;
 
   //use logout button so remove name email
 
@@ -33,19 +32,15 @@ document.getElementById("deadline").min = localNow
 
   let user_email = localStorage.getItem("user_email") || "";
   //dought
-   function dataUpdate() {
-    let userList =
-      JSON.parse(localStorage.getItem("userList")) || [];
+  function dataUpdate() {
+    let userList = JSON.parse(localStorage.getItem("userList")) || [];
 
     return userList;
   }
 
   userList = dataUpdate();
 
-  let indexValue = userList.findIndex(
-    (el) => el.email === user_email
-  );
-
+  let indexValue = userList.findIndex((el) => el.email === user_email);
 
   // Find the matching user object using the email/display the username
 
@@ -62,6 +57,7 @@ document.getElementById("deadline").min = localNow
   add_todo_btn.addEventListener("click", () => {
     add_form_modal.showModal();
   });
+  //it use when datastored so add todo close automatically
   close_btn.addEventListener("click", () => {
     add_form_modal.close();
   });
@@ -69,7 +65,6 @@ document.getElementById("deadline").min = localNow
   //  showing todo list
 
   const todo_container = document.getElementById("todoboard");
-
   if (user_data.todo.length > 0) {
     //  if data avaliable map it in html
   } // If no tasks available → show message
@@ -85,63 +80,73 @@ document.getElementById("deadline").min = localNow
     userList[indexValue] = user_data;
     //store local storage
     localStorage.setItem("userList", JSON.stringify(userList));
-// this render call because when i add todo the data is not stored in local storage when i refresh the store so i use this call i dont refresh the page
-renderTodo(user_data.todo)
- add_form_modal.close();
+    // this render call because when i add todo the data is not stored in local storage when i refresh the store so i use this call i dont refresh the page
+    renderTodo(user_data.todo);
+    add_form_modal.close();
   });
-    //  show todo
+  //  show todo
   renderTodo(user_data.todo);
 
- //Edit form 
- 
-const edit_todo_form = document.getElementById("edit_todo_form");
+  //Edit form
 
-// When user submits the edit form
-edit_todo_form.addEventListener("submit", (e) => {
-  e.preventDefault(); // Prevent page reload on form submit
+  const edit_todo_form = document.getElementById("edit_todo_form");
 
-  // Update the todo inside the user's todo list
-  let newTodo = editFormMethod(user_data.todo);
+  // When user submits the edit form
+  edit_todo_form.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent page reload on form submit
 
-  // Replace the updated user data back into the main userList array
-  userList[indexValue] = user_data;
+    // Update the todo inside the user's todo list
+    let newTodo = editFormMethod(user_data.todo);
 
-  // Save updated userList back to localStorage
-  localStorage.setItem(
-    "userList",
-    JSON.stringify(userList)
-  );
+    // Replace the updated user data back into the main userList array
+    userList[indexValue] = user_data;
 
-  // Re-render the todo list on UI after editing
-  renderTodo(user_data.todo);
-  //apply filter method
+    // Save updated userList back to localStorage
+    localStorage.setItem("userList", JSON.stringify(userList));
 
- applyFilters(User_details.todoList);
+    // Re-render the todo list on UI after editing
+    renderTodo(user_data.todo);
+    //apply filter method
+  });
+// All  Priority filter
+  let filter_prority = document.getElementById("priority_filtring");
+   filter_prority.addEventListener("input", (event) => {
+    console.log(event.target.value)
+    if(event.target.value === "All Priorities"){
+      renderTodo(user_data.todo)
+      return
+    }
+   let filtered_array =  user_data.todo.filter((item) => item.priority === event.target.value);
+    renderTodo(filtered_array);
+  });
+  // All completed task filter method
+  let satus_filter = document.getElementById("satus_filter");
+  satus_filter.addEventListener("input", (event)=>{
+    let filtered = user_data.todo
+    if(event.target.value ==="completed"){
+       filtered=  filtered.filter(todo=>todo.complete===true)
+    }
+    else{
+      filtered=  filtered.filter(todo=>todo.complete===false)
+    }
+    renderTodo(filtered)
 
-  const priority_filter = document.getElementById(
-    "priority_filtring"
-  );
-  const status_filter =
-    document.getElementById("satus_filter");
-  const search_filter =
-    document.getElementById("search_filter");
-// Apply filters on load
-applyFilters(user_data.todo);
-  priority_filter.addEventListener("change", () =>
-    applyFilters(user_data.todoList)
-  );
-  status_filter.addEventListener("change", () =>
-    applyFilters(user_data.todoList)
-  );
+    })
+     //search filter
+     let search_filter = document.getElementById("search_filter");
+    search_filter.addEventListener("input",(event)=>{
+      console.log("HELLO")
+      if(event.target.value.trim()===""){renderTodo(user_data.todo)
 
-  search_filter.addEventListener("input", () =>
-    applyFilters(user_data.todoList)
-  );
-});
+          return
+        }
+        console.log(event.target.value)
+    const keyword =event.target.value.trim().toLowerCase()
+    let filtered=user_data.todo.filter((todo)=>todo.title.toLowerCase().includes(keyword));
+    renderTodo(filtered)
+   
 
+   
 
-  
-});
-
-
-
+  });
+})

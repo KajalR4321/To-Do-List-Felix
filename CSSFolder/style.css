@@ -431,7 +431,7 @@ box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 30px;
 }
 
 .todo_card.Heigh{
-   background: linear-gradient(90deg, rgba(2, 215, 0, 0.6), rgba(255, 165, 0, 0.5));
+   background: linear-gradient(90deg, rgba(91, 166, 189, 0.6), rgba(177, 161, 207, 0.5));
 
 }
 
@@ -444,8 +444,8 @@ box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 30px;
 .todo_card.Low{
     /* background: linear-gradient(90deg, rgba(0, 211, 209, 0.7), rgba(0, 115, 148, 0.4));; */
  background: linear-gradient(90deg,
-  rgba(139, 69, 19, 0.7),
-  rgba(210, 180, 140, 0.4)
+  rgba(5, 26, 216, 0.7),
+  rgba(133, 223, 245, 0.4)
 );
 
 

@@ -1,5 +1,5 @@
 import { editTodo } from "./editTodo.js";
-import { deleteTodo } from "./delete.js";
+import { checkTodo, deleteTodo } from "./delete.js";
 // Selecting the container where all todo cards will be displayed
 const todo_container = document.getElementById("todoboard");
 
@@ -62,6 +62,15 @@ todoList.forEach((el) => {
    clone.querySelector(".delete_btn").addEventListener("click", () => {
     deleteTodo(todoList, el.title);  // call your delete function     
    
+    });
+
+    if(el.complete){
+      clone.querySelector("#complete_label").checked = true
+    }else{
+      clone.querySelector("#complete_label").checked = false
+    }
+    clone.querySelector("#complete_label").addEventListener("click", () => {
+    checkTodo(todoList, el.title);  // call your complete function     
     });
 
   // Append to container
