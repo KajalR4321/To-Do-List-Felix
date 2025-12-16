@@ -164,34 +164,32 @@ body {
 
 /* ---------------- LEFT IMAGE ---------------- */
 .left-side {
-    flex: 0 0 50%; /* Image takes 50% */
-    min-height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 0 0 50%;           /* Image takes 50% width */
+    min-height: 400px;       /* maintain desktop height */
+    position: relative;      /* for absolute image positioning */
     overflow: hidden;
     background: white;
 }
 
 .left-side img {
-  /* position: absolute;      fill the container */
+    position: absolute;      /* fill container fully */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;       /* Ensures image covers container fully */
-    object-position: center; /* Center the image */
+    object-fit: cover;       /* image fills container */
+    object-position: center; /* center the image */
     transition: transform 0.3s;
-    margin-left: 45px;
-    margin-top:8rem;
-    border-radius: 37px;
+    border-radius: 0;        /* no extra margins */
 }
 
-
+.left-side img:hover {
+    transform: scale(1.05);
+}
 
 /* ---------------- RIGHT FORM ---------------- */
 .right-side {
-    flex: 1 1 50%; /* Form takes 50% */
+    flex: 0 0 50%;           /* form takes 50% width */
     padding: 40px;
     display: flex;
     flex-direction: column;
